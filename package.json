@@ -1,0 +1,14 @@
+{
+  "name": "chart-specs",
+  "version": "1.0.0",
+  "description": "Matching esri chart spec to vega/vega-lite chart spec",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ben Stoltz",
+  "license": "ISC",
+  "dependencies": {
+    "arcgis-cedar": "^0.4.2"
+  }
+}
