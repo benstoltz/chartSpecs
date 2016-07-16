@@ -4,11 +4,16 @@
   "description": "Matching esri chart spec to vega/vega-lite chart spec",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "author": "Ben Stoltz",
   "license": "ISC",
   "dependencies": {
-    "arcgis-cedar": "^0.4.2"
+    "arcgis-cedar": "^0.4.2",
+    "datalib": "^1.7.1",
+    "stampit": "^2.1.1"
+  },
+  "devDependencies": {
+    "ava": "^0.15.2"
   }
 }

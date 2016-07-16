@@ -12,20 +12,20 @@ const barChart = {
       title: 'string',
 
       query: {
-        where: 'where-clause',
+        where: '1=1',
 
         outStatistics: [{
-          onStatisticField: 'fs_field_name', // actual field name from the data
-          statisticType: '<count | sum | min | max | avg | stddev | var>', // what is var?
-          outStatisticFieldName: 'uniqueFieldName'
+          onStatisticField: 'Number_of', // actual field name from the data
+          statisticType: 'sum', // what is var?
+          outStatisticFieldName: 'Number_of_SUM'
         }], // other outstatistics here
 
-        groupByFieldsForStatistics: 'field1,field2',
-        orderByFields: 'field1,field2'
+        groupByFieldsForStatistics: 'type',
+        orderByFields: 'Number_of_SUM DESC'
       },
 
-      x: 'field-name',
-      y: 'field-name',
+      x: 'Type',
+      y: 'Number_of_SUM',
 
       showLabels: false, // boolean default false
       horizontalAxisId: 'x-axis',
@@ -34,9 +34,9 @@ const barChart = {
       colorType: 'singleColor|colorMatch', // default singleColor could inherit site colors here
 
       // barSeries
-      multipleBarType: 'none|sideBySide|stacked|stacked100', // what is stacked100?
+      multipleBarType: 'none', // what is stacked100?
       barSize: 'long', //default: 90 ??????
-      fillSymbol: {esriSFS} // Pull in our own stuff
+      fillSymbol: '{esriSFS}' // Pull in our own stuff
     }
   ],
   legend: [
@@ -54,17 +54,17 @@ const barChart = {
       id: 'x-axis',
       visible: true,
       isLogarithmic: false,
-      title: 'x axis',
+      title: 'Facility Use',
       valueFormat: 'string',
       dateTimeFormat: 'string',
       calculateAutomaticMinimum: true, //boolean default true
       calculateAutomaticMaximum: true, // boolean default true
-      minimum: 'number',
-      maximum: 'number'
+      minimum: 'number', // Match to scales[0].domain || scales[0].range
+      maximum: 'number' // Match to scales[0].domain || scales[0].range
     },
     {
       type: 'chartAxis',
-      id: 'y-axis',
+      id: 'Total Students',
       visible: true,
       isLogarithmic: false,
       title: 'y axis',
@@ -72,9 +72,15 @@ const barChart = {
       dateTimeFormat: 'string',
       calculateAutomaticMinimum: true, //boolean default true
       calculateAutomaticMaximum: true, // boolean default true
-      minimum: 'number',
-      maximum: 'number'
+      minimum: 'number', // Match to scales[1].domain || scales[1].range
+      maximum: 'number' // Match to scales[1].domain || scales[1].range
     }
   ],
-  metadata: ''
-};
+  metadata: '',
+
+  dataSource: 'https://services.arcgis.com/uDTUpUPbk8X8mXwl/arcgis/rest/services/Public_Schools_in_Onondaga_County/FeatureServer/0'
+}
+
+module.exports = {
+  barChart
+}
