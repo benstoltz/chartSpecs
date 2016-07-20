@@ -20,7 +20,7 @@ const barChart = {
           outStatisticFieldName: 'Number_of_SUM'
         }], // other outstatistics here
 
-        groupByFieldsForStatistics: 'type',
+        groupByFieldsForStatistics: 'Type',
         orderByFields: 'Number_of_SUM DESC'
       },
 
@@ -36,7 +36,17 @@ const barChart = {
       // barSeries
       multipleBarType: 'none', // what is stacked100?
       barSize: 'long', //default: 90 ??????
-      fillSymbol: '{esriSFS}' // Pull in our own stuff
+      fillSymbol: { // Pull in our own stuff
+        type: 'esriSFS',
+        style: 'esriSFSSolid',
+        color: [115,76,0,255],
+        outline: {
+          type: 'esriSLS',
+          style: 'esriSLSSolid',
+          color: [110,110,110,255],
+          width: 1
+        }
+      }
     }
   ],
   legend: [
@@ -81,6 +91,4 @@ const barChart = {
   dataSource: 'https://services.arcgis.com/uDTUpUPbk8X8mXwl/arcgis/rest/services/Public_Schools_in_Onondaga_County/FeatureServer/0'
 }
 
-module.exports = {
-  barChart
-}
+module.exports = barChart
