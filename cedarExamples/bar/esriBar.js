@@ -74,10 +74,10 @@ const barChart = {
     },
     {
       type: 'chartAxis',
-      id: 'Total Students',
+      id: 'y-axis',
       visible: true,
       isLogarithmic: false,
-      title: 'y axis',
+      title: 'Total Students',
       valueFormat: 'string',
       dateTimeFormat: 'string',
       calculateAutomaticMinimum: true, //boolean default true
