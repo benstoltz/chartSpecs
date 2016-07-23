@@ -7,8 +7,4 @@ const vg = require('vega')
 
 const esriBar = parseEsriSpec(barChart, vegaBarTemplate)
 
-vg.parse.spec(esriBar, (chart) => {
-  const view = chart({ renderer: "canvas" }).update()
-  const canvas = view.canvas()
-  console.log(`<img src="${canvas.toDataURL()}" />`)
-})
+vg.parse.spec(esriBar, (error, chart) => { chart({el:'#vis'}).update() })

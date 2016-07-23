@@ -1,0 +1,31 @@
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//vega.github.io/vega/vega.js"></script>
+<script src="//vega.github.io/vega-lite/vega-lite.js"></script>
+<script src="//vega.github.io/vega-editor/vendor/vega-embed.js" charset="utf-8"></script>
+
+<div id="chart"></div>
+<div id="vis"></div>
+
+<ul id="chartSpecInput"></ul>
+<form action="">
+  <textarea cols="50" rows="10" id="m" autocomplete="off"></textarea>
+  <button>Send chart spec</button>
+</form>
+
+
+<script>
+  var socket = io.connect();
+  $('form').submit(() => {
+    var val = $('#m').val())
+    console.log(obj)
+    socket.emit('esri spec', obj)
+    $('#m').val('')
+    return false
+  })
+  socket.on('receive chart', (esriBar) => {
+    console.log(esriBar)
+    vg.parse.spec(esriBar, (error, chart) => { chart({el:'#vis'}).update() })
+  })
+</script>

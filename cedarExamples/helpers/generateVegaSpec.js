@@ -116,50 +116,5 @@ function convertLegend() {
   return;
 }
 
-/**
- * merges n objects
- *
- * @param {object} - empty object that input objects will be merged into
- *
- * @returns {object} - merged object
- */
-function mixin(source) {
-  const args = [...arguments]
-  for (let i = 1; i < args.length; i++) {
-    for ( const key of Object.keys(args[i])) {
-      source[key] = args[i][key]
-    }
-  }
-  return source
-}
-
-function supplant(template, params) {
-  const t = template.replace(/{([^{}]*)}/g,
-    (a, b) => {
-      var r = getTokenValue(params, b);
-
-      return typeof r === 'string' || typeof r === 'number' ? r : a;
-    }
-  )
-  return t.replace(/"{([^{}]*)}"/g,
-    (a, b) => {
-      const r = getTokenValue(params, b);
-      return r.constructor === Array ? r = JSON.stringify(r) : a;
-    })
-}
-
-function getTokenValue(tokens, tokenName) {
-  let tempTokens = tokens
-  const tokenNameParts = tokenName.split('.')
-  for (let key in tokenNameParts) {
-    if (tempTokens.hasOwnProperty(tokenNameParts[key])) {
-      tempTokens = tempTokens[tokenNameParts[key]]
-    } else {
-      return null
-    }
-  }
-  return tempTokens
-}
-
 module.exports = {parseEsriSpec}
 // parseVegaTemplate(vegaBarTemplate)

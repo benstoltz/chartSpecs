@@ -31,7 +31,7 @@ const barChart = {
       horizontalAxisId: 'x-axis',
       verticalAxisId: 'y-axis',
 
-      colorType: 'singleColor|colorMatch', // default singleColor could inherit site colors here
+      colorType: 'singleColor', // default singleColor could inherit site colors here
 
       // barSeries
       multipleBarType: 'none', // what is stacked100?
