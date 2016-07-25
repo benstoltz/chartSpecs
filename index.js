@@ -1,4 +1,4 @@
-{
+var esriBarSpec = {
   "type": "chart",
   "name": "test bar chart",
   "title": "test bar chart",
@@ -90,3 +90,95 @@
 
   "dataSource": "https://services.arcgis.com/uDTUpUPbk8X8mXwl/arcgis/rest/services/Public_Schools_in_Onondaga_County/FeatureServer/0"
 }
+
+esriLineSpec = {
+  "type": "chart",
+  "name": "test line chart",
+  "title": "test line chart",
+  "subTitle": "",
+  "footer": "",
+  "series": [
+    {
+      "type": "lineSeries",
+
+      "title": "string",
+
+      "query": {
+        "where": "1=1",
+
+        "orderByFields": "Date"
+      },
+
+      "x": "Date",
+      "y": "Injuries",
+
+      "showLabels": false,
+      "horizontalAxisId": "x-axis",
+      "verticalAxisId": "y-axis",
+
+      "colorType": "singleColor",
+
+      "lineSymbol": {
+        "type": "esriSLS",
+        "style": "esriSLSSolid",
+        "color": [115,76,0,255],
+        "width": 1
+      }
+    }
+  ],
+  "legend": [
+    {
+      "type": "chartLegend",
+      "visible": false,
+      "title": "",
+      "alignment": "right",
+      "valueFormat": ""
+    }
+  ],
+  "axes": [
+    {
+      "type": "chartAxis",
+      "id": "x-axis",
+      "visible": true,
+      "isLogarithmic": false,
+      "title": "Date",
+      "valueFormat": "string",
+      "dateTimeFormat": "string",
+      "calculateAutomaticMinimum": true,
+      "calculateAutomaticMaximum": true,
+      "minimum": "number",
+      "maximum": "number"
+    },
+    {
+      "type": "chartAxis",
+      "id": "y-axis",
+      "visible": true,
+      "isLogarithmic": false,
+      "title": "Injuries",
+      "valueFormat": "string",
+      "dateTimeFormat": "string",
+      "calculateAutomaticMinimum": true,
+      "calculateAutomaticMaximum": true,
+      "minimum": "number",
+      "maximum": "number"
+    }
+  ],
+  "metadata": "",
+
+  "dataSource": "http://services.arcgis.com/bkrWlSKcjUDFDtgw/arcgis/rest/services/It's_a_Tornado_Map/FeatureServer/0"
+}
+
+
+var barChart = Cedar({
+  "type": "vg",
+  "spec": esriBarSpec
+})
+console.log(barChart)
+barChart.show('#bar')
+
+var lineChart = Cedar({
+  "type": "vg",
+  "spec": esriLineSpec
+})
+console.log(lineChart)
+lineChart.show('#line')

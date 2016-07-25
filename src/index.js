@@ -1,7 +1,6 @@
 import { version } from '../package.json'
 import {parseEsriSpec} from './generateSpec/esriToVega'
 import { renderVega } from './render/renderVega'
-import barSpec from './specs/bar.json'
 
 const cedar = function() {
   const state = {}
@@ -9,12 +8,15 @@ const cedar = function() {
 
   // state.type = this.type
   // this.esriSpec = this.spec
-  this.vgSpec = parseEsriSpec(this.spec, barSpec)
+  if (this.spec) {
+    this.vgSpec = parseEsriSpec(this.spec)
+  }
 
-  console.log(`The state is: ${state}`)
+  console.log(`The state is: `, state)
 
   return Object.assign(this, {
     show (el) {
+      console.log(this.vgSpec)
       renderVega(this.vgSpec, el)
     },
 

@@ -1,0 +1,91 @@
+{
+  "type": "chart",
+  "name": "test bar chart",
+  "title": "test bar chart",
+  "subTitle": "",
+  "footer": "",
+  "series": [
+    {
+      "type": "barSeries",
+
+      "title": "string",
+
+      "query": {
+        "where": "1=1",
+
+        "outStatistics": [{
+          "onStatisticField": "Number_of",
+          "statisticType": "sum",
+          "outStatisticFieldName": "Number_of_SUM"
+        }],
+
+        "groupByFieldsForStatistics": "Type",
+        "orderByFields": "Number_of_SUM DESC"
+      },
+
+      "x": "Type",
+      "y": "Number_of_SUM",
+
+      "showLabels": false,
+      "horizontalAxisId": "x-axis",
+      "verticalAxisId": "y-axis",
+
+      "colorType": "singleColor",
+
+
+      "multipleBarType": "none",
+      "barSize": "long",
+      "fillSymbol": {
+        "type": "esriSFS",
+        "style": "esriSFSSolid",
+        "color": [115,76,0,255],
+        "outline": {
+          "type": "esriSLS",
+          "style": "esriSLSSolid",
+          "color": [110,110,110,255],
+          "width": 1
+        }
+      }
+    }
+  ],
+  "legend": [
+    {
+      "type": "chartLegend",
+      "visible": false,
+      "title": "",
+      "alignment": "right",
+      "valueFormat": ""
+    }
+  ],
+  "axes": [
+    {
+      "type": "chartAxis",
+      "id": "x-axis",
+      "visible": true,
+      "isLogarithmic": false,
+      "title": "Facility Use",
+      "valueFormat": "string",
+      "dateTimeFormat": "string",
+      "calculateAutomaticMinimum": true,
+      "calculateAutomaticMaximum": true,
+      "minimum": "number",
+      "maximum": "number"
+    },
+    {
+      "type": "chartAxis",
+      "id": "y-axis",
+      "visible": true,
+      "isLogarithmic": false,
+      "title": "Total Students",
+      "valueFormat": "string",
+      "dateTimeFormat": "string",
+      "calculateAutomaticMinimum": true,
+      "calculateAutomaticMaximum": true,
+      "minimum": "number",
+      "maximum": "number"
+    }
+  ],
+  "metadata": "",
+
+  "dataSource": "https://services.arcgis.com/uDTUpUPbk8X8mXwl/arcgis/rest/services/Public_Schools_in_Onondaga_County/FeatureServer/0"
+}

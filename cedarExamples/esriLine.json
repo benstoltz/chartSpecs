@@ -1,0 +1,76 @@
+{
+  "type": "chart",
+  "name": "test line chart",
+  "title": "test line chart",
+  "subTitle": "",
+  "footer": "",
+  "series": [
+    {
+      "type": "lineSeries",
+
+      "title": "string",
+
+      "query": {
+        "where": "1=1",
+
+        "orderByFields": "Date"
+      },
+
+      "x": "Date",
+      "y": "Injuries",
+
+      "showLabels": false,
+      "horizontalAxisId": "x-axis",
+      "verticalAxisId": "y-axis",
+
+      "colorType": "singleColor",
+
+      "lineSymbol": {
+        "type": "esriSLS",
+        "style": "esriSLSSolid",
+        "color": [115,76,0,255],
+        "width": 1
+      }
+    }
+  ],
+  "legend": [
+    {
+      "type": "chartLegend",
+      "visible": false,
+      "title": "",
+      "alignment": "right",
+      "valueFormat": ""
+    }
+  ],
+  "axes": [
+    {
+      "type": "chartAxis",
+      "id": "x-axis",
+      "visible": true,
+      "isLogarithmic": false,
+      "title": "Date",
+      "valueFormat": "string",
+      "dateTimeFormat": "string",
+      "calculateAutomaticMinimum": true,
+      "calculateAutomaticMaximum": true,
+      "minimum": "number",
+      "maximum": "number"
+    },
+    {
+      "type": "chartAxis",
+      "id": "y-axis",
+      "visible": true,
+      "isLogarithmic": false,
+      "title": "Injuries",
+      "valueFormat": "string",
+      "dateTimeFormat": "string",
+      "calculateAutomaticMinimum": true,
+      "calculateAutomaticMaximum": true,
+      "minimum": "number",
+      "maximum": "number"
+    }
+  ],
+  "metadata": "",
+
+  "dataSource": "http://services.arcgis.com/bkrWlSKcjUDFDtgw/arcgis/rest/services/It's_a_Tornado_Map/FeatureServer/0"
+}
