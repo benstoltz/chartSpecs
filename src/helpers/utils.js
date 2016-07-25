@@ -1,18 +1,17 @@
 export function supplant(template, params) {
   const t = template.replace(/{([^{}]*)}/g,
     (a, b) => {
-      var r = getTokenValue(params, b);
+      const r = getTokenValue(params, b);
 
       return typeof r === 'string' || typeof r === 'number' ? r : a;
     }
   )
   return t.replace(/"{([^{}]*)}"/g,
     (a, b) => {
-      const r = getTokenValue(params, b);
+      let r = getTokenValue(params, b);
       return r.constructor === Array ? r = JSON.stringify(r) : a;
     })
 }
-
 
 /**
  * merges n objects
@@ -30,7 +29,6 @@ export function mixin(source) {
   }
   return source
 }
-
 
 export function getTokenValue(tokens, tokenName) {
   let tempTokens = tokens

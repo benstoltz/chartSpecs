@@ -4,7 +4,8 @@
   "description": "Matching esri chart spec to vega/vega-lite chart spec",
   "main": "server.js",
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "build": "rollup -c rollup.config.js"
   },
   "author": "Ben Stoltz",
   "license": "ISC",
