@@ -1,6 +1,6 @@
 {
   "name": "chart-specs",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Matching esri chart spec to vega/vega-lite chart spec",
   "main": "server.js",
   "scripts": {
@@ -19,6 +19,10 @@
     "vega": "^2.6.0"
   },
   "devDependencies": {
-    "ava": "^0.15.2"
+    "ava": "^0.15.2",
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "rollup": "^0.34.1",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-json": "^2.0.1"
   }
 }
