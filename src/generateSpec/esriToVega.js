@@ -6,10 +6,9 @@ import _ from 'lodash'
 
 const dl = vg.util
 
-export function parseEsriSpec(esriChartSpec) {
+export function esriToVega(esriChartSpec) {
   const query = buildQuery(esriChartSpec.dataSource, esriChartSpec.series[0].query)
   const vegaChartSpec = whichSpec(esriChartSpec.series[0])
-  console.log(vegaChartSpec)
 
   const data = dl.json(query)
 
@@ -34,7 +33,6 @@ function buildMappings(series, axes, legend) {
       mapping.color = { field: colorInfo.field, label: legend.title }
     }
   }
-  console.log('oh hey the mapping is: ', mapping)
   return mapping
 }
 
@@ -50,6 +48,5 @@ function filterVisualVariables(type, visualVariables) {
 function whichSpec(series) {
   const options = [{'barSeries': 'bar'}, {'lineSeries': 'line'}, {'scatterSeries': 'scatter'}, {'histogramSeries': 'histogram'}]
   const type = options.filter((type) => { return type.hasOwnProperty(series.type) })[0]
-  console.log(type)
   return specTemplates[type[series.type]]
 }

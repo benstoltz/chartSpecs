@@ -1,6 +1,8 @@
 import { version } from '../package.json'
-import {parseEsriSpec} from './generateSpec/esriToVega'
+import { esriToVega } from './generateSpec/esriToVega'
+import { esriToAM } from './generateSpec/esriToAM'
 import { renderVega, embedVega } from './render/renderVega'
+import { renderAm } from './render/renderAM'
 
 const cedar = function() {
   const state = {}
@@ -9,15 +11,18 @@ const cedar = function() {
   // state.type = this.type
   // this.esriSpec = this.spec
   if (this.spec) {
-    this.vgSpec = parseEsriSpec(this.spec)
+    this.vgSpec = esriToVega(this.spec)
+    this.amSpec = esriToAM(this.spec)
   }
 
-  console.log(`The state is: `, state)
 
   return Object.assign(this, {
     show (el) {
-      console.log(this.vgSpec)
       renderVega(this.vgSpec, el)
+    },
+
+    showAm(el) {
+      renderAm(this.amSpec, el)
     },
 
     embed(el) {
@@ -29,7 +34,7 @@ const cedar = function() {
     },
 
     get () {
-      console.log(state)
+      console.log(this)
     }
   }, {})
 }
