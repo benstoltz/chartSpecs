@@ -91,7 +91,7 @@ var esriBarSpec = {
   "dataSource": "https://services.arcgis.com/uDTUpUPbk8X8mXwl/arcgis/rest/services/Public_Schools_in_Onondaga_County/FeatureServer/0"
 }
 
-esriLineSpec = {
+var esriLineSpec = {
   "type": "chart",
   "name": "test line chart",
   "title": "test line chart",
@@ -168,17 +168,125 @@ esriLineSpec = {
   "dataSource": "http://services.arcgis.com/bkrWlSKcjUDFDtgw/arcgis/rest/services/It's_a_Tornado_Map/FeatureServer/0"
 }
 
+var esriScatterSpec = {
+  "type": "chart",
+  "name": "test scatterplot chart",
+  "title": "test scatterplot chart",
+  "subTitle": "",
+  "footer": "",
+  "series": [
+    {
+      "type": "scatterSeries",
+
+      "title": "string",
+
+      "query": {
+        "where": "1=1",
+      },
+
+      "x": "Number_of",
+      "y": "F_of_teach",
+
+      "showLabels": false,
+      "horizontalAxisId": "x-axis",
+      "verticalAxisId": "y-axis",
+
+      "colorType": "singleColor",
+
+      "markerSymbol": {
+        "type": "esriSMS",
+        "style": "esriSMSCircle",
+        "color": [76,115,0,255],
+        "size": 8,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [152,230,0,255],
+          "width": 1
+        }
+      },
+      "visualVariables": [
+        {
+          "type": "colorInfo",
+          "field": "Type",
+          "stops": [
+            {
+              "value": 0,
+              "color": [255,255,255,255],
+              "label": "< 30.900"
+            },
+            {
+              "value": 100,
+              "color": [127,127,0,255],
+              "label": "37.415"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "legend": [
+    {
+      "type": "chartLegend",
+      "visible": true,
+      "title": "Facility Type",
+      "alignment": "right",
+      "valueFormat": ""
+    }
+  ],
+  "axes": [
+    {
+      "type": "chartAxis",
+      "id": "x-axis",
+      "visible": true,
+      "isLogarithmic": false,
+      "title": "Student Enrollment (2008)",
+      "valueFormat": "string",
+      "dateTimeFormat": "string",
+      "calculateAutomaticMinimum": true,
+      "calculateAutomaticMaximum": true,
+      "minimum": "number",
+      "maximum": "number"
+    },
+    {
+      "type": "chartAxis",
+      "id": "y-axis",
+      "visible": true,
+      "isLogarithmic": false,
+      "title": "Fraction of Teachers",
+      "valueFormat": "string",
+      "dateTimeFormat": "string",
+      "calculateAutomaticMinimum": true,
+      "calculateAutomaticMaximum": true,
+      "minimum": "number",
+      "maximum": "number"
+    }
+  ],
+  "metadata": "",
+
+  "dataSource": "https://services.arcgis.com/uDTUpUPbk8X8mXwl/arcgis/rest/services/Public_Schools_in_Onondaga_County/FeatureServer/0"
+}
+
+
 
 var barChart = Cedar({
   "type": "vg",
   "spec": esriBarSpec
 })
-console.log(barChart)
+console.log('bar is: ', barChart)
 barChart.show('#bar')
 
 var lineChart = Cedar({
   "type": "vg",
   "spec": esriLineSpec
 })
-console.log(lineChart)
+console.log('line is: ', lineChart)
 lineChart.show('#line')
+
+var scatterChart = Cedar({
+  "type": "vg",
+  "spec": esriScatterSpec
+})
+console.log('scatter is: ', scatterChart)
+scatterChart.show('#scatter')

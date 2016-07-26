@@ -5,3 +5,9 @@ export function renderVega(spec, el) {
     chart(({el})).update()
   })
 }
+
+export function embedVega(spec, el) {
+  vg.embed(el, spec, (error, result) => {
+    console.log(`Result is: ${result}`)
+  })
+}

@@ -1,6 +1,6 @@
 import { version } from '../package.json'
 import {parseEsriSpec} from './generateSpec/esriToVega'
-import { renderVega } from './render/renderVega'
+import { renderVega, embedVega } from './render/renderVega'
 
 const cedar = function() {
   const state = {}
@@ -18,6 +18,10 @@ const cedar = function() {
     show (el) {
       console.log(this.vgSpec)
       renderVega(this.vgSpec, el)
+    },
+
+    embed(el) {
+      embedVega(this.vgSpec, el)
     },
 
     dataset (val) {
