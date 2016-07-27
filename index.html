@@ -1,31 +1,54 @@
-<!-- <script src="/socket.io/socket.io.js"></script> -->
-<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-<script src="//d3js.org/d3.v3.min.js"></script>
-<script src="//vega.github.io/vega/vega.js"></script>
-<script src="//vega.github.io/vega-lite/vega-lite.js"></script>
-<script src="//vega.github.io/vega-editor/vendor/vega-embed.js" charset="utf-8"></script>
-<script src="//cdn.jsdelivr.net/lodash/4.14.0/lodash.min.js"></script>
-<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-<script src="https://www.amcharts.com/lib/3/serial.js"></script>
-<script src="https://www.amcharts.com/lib/3/themes/none.js"></script>
-<script src="./dist/bundle.js"></script>
-<script src="./index.js"></script>
-<style type="text/css">
-#amBar {
-	width		: 100%;
-	height		: 500px;
-	font-size	: 11px;
-}
-</style>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
 
-<div id="bar"></div>
-<div id="amBar"></div>
-<div id="horBar"></div>
-<div id="line"></div>
-<div id="scatter"></div>
+    <!-- Bootstrap only required for demo page -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+      .chart-spec {
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h4 id="chartTitle">Chart</h4>
+          <div id="chart"></div>
+        </div>
+        <div class="col-md-6">
+          <form id="specForm">
+            <div class="form-group">
+              <label for="chartSpec">Chart Spec</label>
+              <button data-chart-type="bar" class="btn btn-default">Bar</button>
+              <button data-chart-type="line" class="btn btn-default">Line</button>
+              <button data-chart-type="scatter" class="btn btn-default">Scatter</button>
+              <textarea id="chartSpec" class="form-control chart-spec" rows="30"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Render Chart</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
-<!-- <ul id="chartSpecInput"></ul>
-<form action="">
-  <textarea cols="50" rows="10" id="m" autocomplete="off"></textarea>
-  <button>Send chart spec</button>
-</form> -->
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="//vega.github.io/vega/vega.js"></script>
+    <script src="//vega.github.io/vega-lite/vega-lite.js"></script>
+    <script src="//vega.github.io/vega-editor/vendor/vega-embed.js" charset="utf-8"></script>
+    <script src="//cdn.jsdelivr.net/lodash/4.14.0/lodash.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/none.js"></script>
+    <script src="./dist/bundle.js"></script>
+    <script src="./specs.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
