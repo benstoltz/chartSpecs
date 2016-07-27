@@ -34,7 +34,7 @@ const cedar = function() {
     },
 
     get () {
-      console.log(this)
+      console.log(this.vgSpec)
     }
   }, {})
 }

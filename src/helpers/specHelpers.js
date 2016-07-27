@@ -23,8 +23,13 @@ export function filterVisualVariables(type, visualVariables) {
   return _.find(visualVariables, {'type': type})
 }
 
+export function determineSpec(series, specTemplates) {
+  const type = whichSpec(series, specTemplates)
+  return specTemplates[type[series.type]]
+}
+
 export function whichSpec(series, specTemplates) {
   const options = [{'barSeries': 'bar'}, {'lineSeries': 'line'}, {'scatterSeries': 'scatter'}, {'histogramSeries': 'histogram'}]
   const type = options.filter((type) => { return type.hasOwnProperty(series.type) })[0]
-  return specTemplates[type[series.type]]
+  return type
 }

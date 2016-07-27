@@ -12,6 +12,7 @@ export function esriToAM(esriChartSpec) {
     .map((attr) => { return attr.attributes })
 
   const mappings = buildMappings(esriChartSpec.series[0], esriChartSpec.axes, esriChartSpec.legend[0])
+  mappings.stats = dl.summary(data)
 
   return {
     "type": "serial",
