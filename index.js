@@ -276,18 +276,18 @@ var barChart = Cedar({
 })
 console.log('bar is: ', barChart)
 barChart.show('#bar')
-var bob = AmCharts.makeChart('amBar', barChart.amSpec)
-//
-// var lineChart = Cedar({
-//   "type": "vg",
-//   "spec": esriLineSpec
-// })
-// console.log('line is: ', lineChart)
-// lineChart.show('#line')
-//
-// var scatterChart = Cedar({
-//   "type": "vg",
-//   "spec": esriScatterSpec
-// })
-// console.log('scatter is: ', scatterChart)
-// scatterChart.show('#scatter')
+barChart.showAm('amBar')
+
+var lineChart = Cedar({
+  "type": "vg",
+  "spec": esriLineSpec
+})
+console.log('line is: ', lineChart)
+lineChart.show('#line')
+
+var scatterChart = Cedar({
+  "type": "vg",
+  "spec": esriScatterSpec
+})
+console.log('scatter is: ', scatterChart)
+scatterChart.show('#scatter')
