@@ -18,7 +18,7 @@ const cedar = function() {
     this.datasource = this.spec.dataSource
     this.query = buildQuery(this.datasource, this.spec.series[0].query)
     this.data = dl.json(this.query)
-
+    this.stats = dl.summary(this.data.features.map((attr) => { return attr.attributes }))
 
     this.vgSpec = esriToVega(this.spec, this.data)
     this.amSpec = esriToAM(this.spec, this.data)

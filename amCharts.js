@@ -4,7 +4,6 @@ var barChart = Cedar({
 })
 console.log('bar is: ', barChart)
 barChart.show('#bar')
-var bob = AmCharts.makeChart('amBar', barChart.amSpec)
 
 // var lineChart = Cedar({
 //   "type": "vg",
