@@ -1,18 +1,28 @@
 import { version } from '../package.json'
 import { esriToVega } from './generateSpec/esriToVega'
+import { buildQuery } from './query/query'
 import { esriToAM } from './generateSpec/esriToAM'
+import { esriToVL } from './generateSpec/esriToVL'
 import { renderVega, embedVega } from './render/renderVega'
 import { renderAm } from './render/renderAM'
+import { embedVL } from './render/renderVL'
+import vg from 'vega'
+
+const dl = vg.util
 
 const cedar = function() {
   const state = {}
   this.version = version
 
-  // state.type = this.type
-  // this.esriSpec = this.spec
   if (this.spec) {
-    this.vgSpec = esriToVega(this.spec)
-    this.amSpec = esriToAM(this.spec)
+    this.datasource = this.spec.dataSource
+    this.query = buildQuery(this.datasource, this.spec.series[0].query)
+    this.data = dl.json(this.query)
+
+
+    this.vgSpec = esriToVega(this.spec, this.data)
+    this.amSpec = esriToAM(this.spec, this.data)
+    this.vlSpec = esriToVL(this.spec, this.data)
   }
 
 
@@ -23,6 +33,10 @@ const cedar = function() {
 
     showAm(el) {
       renderAm(this.amSpec, el)
+    },
+
+    showVL(el) {
+      embedVL(this.vlSpec, el)
     },
 
     embed(el) {

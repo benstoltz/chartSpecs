@@ -6,18 +6,18 @@ import _ from 'lodash'
 const dl = vg.util
 
 
-export function esriToAM(esriChartSpec) {
-  const query = buildQuery(esriChartSpec.dataSource, esriChartSpec.series[0].query)
-  const data = dl.json(query).features
+export function esriToAM(esriChartSpec, data) {
+  // const query = buildQuery(esriChartSpec.dataSource, esriChartSpec.series[0].query)
+  const dataArr = data.features
     .map((attr) => { return attr.attributes })
 
   const mappings = buildMappings(esriChartSpec.series[0], esriChartSpec.axes, esriChartSpec.legend[0])
-  mappings.stats = dl.summary(data)
+  mappings.stats = dl.summary(dataArr)
 
   return {
     "type": "serial",
     "theme": "none",
-    dataProvider: data,
+    dataProvider: dataArr,
     "valueAxes": [
       {
         "gridColor": "#FFFFFF",

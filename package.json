@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "ava",
-    "build": "rollup -c rollup.config.js"
+    "build": "rollup -w -c rollup.config.js"
   },
   "author": "Ben Stoltz",
   "license": "ISC",
@@ -18,13 +18,16 @@
     "lodash": "^4.13.1",
     "socket.io": "^1.4.8",
     "stampit": "^2.1.1",
-    "vega": "^2.6.0"
+    "vega": "^2.6.0",
+    "vega-embed": "^2.2.0",
+    "vega-lite": "^1.1.0"
   },
   "devDependencies": {
     "ava": "^0.15.2",
     "babel-preset-es2015-rollup": "^1.1.1",
     "rollup": "^0.34.1",
     "rollup-plugin-babel": "^2.6.1",
-    "rollup-plugin-json": "^2.0.1"
+    "rollup-plugin-json": "^2.0.1",
+    "rollup-watch": "^2.5.0"
   }
 }

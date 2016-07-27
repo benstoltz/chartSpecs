@@ -7,11 +7,9 @@ import vg from 'vega'
 
 const dl = vg.util
 
-export function esriToVega(esriChartSpec) {
-  const query = buildQuery(esriChartSpec.dataSource, esriChartSpec.series[0].query)
+export function esriToVega(esriChartSpec, data) {
   const vegaChartSpec = determineSpec(esriChartSpec.series[0], specTemplates)
 
-  const data = dl.json(query)
 
   const mappings = applyDefaultsToMappings(buildMappings(esriChartSpec.series[0], esriChartSpec.axes, esriChartSpec.legend[0]), vegaChartSpec.inputs)
 
