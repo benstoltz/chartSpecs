@@ -70,7 +70,7 @@ export function applyDefaultsToMappings(mappings, inputs) {
 
 function componentToHex(c) {
   const hex = c.toString(16)
-  return hext.length === 1 ? `0${hex}` : hex
+  return hex.length === 1 ? `0${hex}` : hex
 }
 
 export function rgbToHex(r, g, b) {

@@ -1,7 +1,8 @@
 {
   "inputs": [
     { "name": "x", "type": [ "string" ], "required": true },
-    { "name": "y", "type": [ "numeric" ], "required": true }
+    { "name": "y", "type": [ "numeric" ], "required": true },
+    { "name": "color", "type": ["string"], "required": true}
   ],
   "query": {},
   "template":{
@@ -74,7 +75,7 @@
             "x": {"field": "{x.field}", "scale": "x"},
             "y": {"field": "{y.field}", "scale": "y"},
             "y2": {"scale": "y", "value": 0 },
-            "fill": {"value": "#0079c1"}
+            "fill": {"value": "{color.value}"}
           },
           "hover": {
             "fill": {"value": "#29b6ea"}
