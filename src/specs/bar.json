@@ -10,7 +10,7 @@
       {
         "type": "x",
         "scale": "x",
-        "titleOffset": 45,
+        "titleOffset": 100,
         "title": "{x.label}",
         "properties": {
           "title": {
@@ -59,8 +59,7 @@
     ],
     "data": [
       {
-        "name": "table",
-        "format": {"property": "features"}
+        "name": "table"
       }
     ],
     "marks": [
@@ -71,8 +70,8 @@
           },
           "update": {
             "width": {"band": true, "offset": -1, "scale": "x"},
-            "x": {"field": "attributes.{x.field}", "scale": "x"},
-            "y": {"field": "attributes.{y.field}", "scale": "y"},
+            "x": {"field": "{x.field}", "scale": "x"},
+            "y": {"field": "{y.field}", "scale": "y"},
             "y2": {"scale": "y", "value": 0 },
             "fill": {"value": "#0079c1"}
           },
@@ -87,7 +86,7 @@
       {
         "domain": {
           "data": "table",
-          "field": "attributes.{x.field}"
+          "field": "{x.field}"
         },
         "name": "x",
         "range": "width",
@@ -97,7 +96,7 @@
       {
         "domain": {
           "data": "table",
-          "field": "attributes.{y.field}"
+          "field": "{y.field}"
         },
         "name": "y",
         "nice": true,

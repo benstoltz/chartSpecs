@@ -8,10 +8,7 @@
     "padding": "strict",
     "data": [
       {
-        "name": "table",
-        "format": {
-          "property": "features"
-        }
+        "name": "table"
       }
     ],
     "scales": [
@@ -21,7 +18,7 @@
         "range": "width",
         "domain": {
           "data": "table",
-          "field": "attributes.{x.field}"
+          "field": "{x.field}"
         }
       },
       {
@@ -30,7 +27,7 @@
         "range": "height",
         "domain": {
           "data": "table",
-          "field": "attributes.{y.field}"
+          "field": "{y.field}"
         }
       },
       {
@@ -38,9 +35,9 @@
         "type": "ordinal",
         "domain": {
           "data": "table",
-          "field": "attributes.{color.field}"
+          "field": "{color.field}"
         },
-        "range": "category10"
+        "range": ["red", "green", "blue"]
       }
     ],
     "axes": [
@@ -127,15 +124,15 @@
           "enter": {
             "x": {
               "scale": "x",
-              "field": "attributes.{x.field}"
+              "field": "{x.field}"
             },
             "y": {
               "scale": "y",
-              "field": "attributes.{y.field}"
+              "field": "{y.field}"
             },
             "fill": {
               "scale": "c",
-              "field": "attributes.{color.field}"
+              "field": "{color.field}"
             },
             "fillOpacity": {
               "value": 0.5

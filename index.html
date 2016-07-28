@@ -26,6 +26,7 @@
           <form id="specForm">
             <div class="form-group">
               <label for="chartSpec">Chart Spec</label>
+              <div id="vis-tooltip" class="vg-tooltip"></div>
               <button data-chart-type="bar" class="btn btn-default">Bar</button>
               <button data-chart-type="line" class="btn btn-default">Line</button>
               <button data-chart-type="scatter" class="btn btn-default">Scatter</button>
@@ -43,6 +44,10 @@
     <script src="//vega.github.io/vega/vega.js"></script>
     <script src="//vega.github.io/vega-lite/vega-lite.js"></script>
     <script src="//vega.github.io/vega-editor/vendor/vega-embed.js" charset="utf-8"></script>
+    <script src="https://vega.github.io/datalib/datalib.min.js"></script>
+    <!-- Vega Tooltip -->
+    <script src="https://vega.github.io/vega-tooltip/vg-tooltip.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://vega.github.io/vega-tooltip/vg-tooltip.css">
     <script src="//cdn.jsdelivr.net/lodash/4.14.0/lodash.min.js"></script>
     <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
     <script src="https://www.amcharts.com/lib/3/serial.js"></script>

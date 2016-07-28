@@ -1,8 +1,11 @@
 import vg from 'vega'
 
 export function renderVega(spec, el) {
-  vg.parse.spec(spec, (error, chart) => {
-    chart({el}).update()
+  vg.parse.spec(spec, (error, result) => {
+    console.log('Rendered chart is: ', result)
+    const view = result({el}).update()
+
+    vg.tooltip(view)
   })
 }
 
