@@ -29,7 +29,8 @@
             "fill": {"value": "#999"},
             "angle": {"value": -50},
             "align": {"value": "right"},
-            "baseline": {"value": "middle"}
+            "baseline": {"value": "middle"},
+            "text": {"template": "{{ datum.data | truncate:20}}"}
           }
         }
       },
