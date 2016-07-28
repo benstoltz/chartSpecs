@@ -2,7 +2,8 @@
   "inputs":[
     {"name":"x","type":["time"], "required":true},
     {"name":"y","type":["numeric"], "required":true},
-    { "name": "color", "type": ["string"], "required": true}
+    { "name": "color", "type": ["string"], "required": true},
+    { "name": "lineType", "type": ["numberic"], "required": true}
   ],
   "template":{
     "padding": "strict",
@@ -112,7 +113,8 @@
             "x": {"scale": "x", "field": "{x.field}"},
             "y": {"scale": "y", "field": "{y.field}"},
             "y2": {"scale": "y", "value": 0},
-            "stroke": {"value": "{color.value}"}
+            "stroke": {"value": "{color.value}"},
+            "strokeDash": {"value": "{lineType.value}"}
           }
         }
       }

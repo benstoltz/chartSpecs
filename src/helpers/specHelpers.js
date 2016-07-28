@@ -7,6 +7,8 @@ export function buildMappings(series, axes, legend) {
     y: { field: series.y, label: filterAxes(series.verticalAxisId, axes).title }
   }
   determineColor(series, mapping)
+  determineLineStroke(series, mapping, legend)
+
   return mapping
 }
 
@@ -30,7 +32,7 @@ export function whichSpec(series, specTemplates) {
   return type
 }
 
-function determineColor(series, mapping) {
+function determineColor(series, mapping, legend) {
   if (!!series.visualVariables) {
     const colorInfo = filterVisualVariables('colorInfo', series.visualVariables)
     if (!!colorInfo) {
@@ -48,5 +50,18 @@ function determineColor(series, mapping) {
   }
   else {
     mapping.color = { value: "#0079c1" }
+  }
+}
+
+function determineLineStroke(series, mapping) {
+  if (!!series.lineSymbol && !!series.lineSymbol.style) {
+    switch(series.lineSymbol.style) {
+      case "esriSLSSolid":
+        mapping.lineType = { value: [1] }
+        break
+      case "esriSLSDash":
+        mapping.lineType = { value: [5,2] }
+        break
+    }
   }
 }
