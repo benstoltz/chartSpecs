@@ -14,7 +14,6 @@ function drawChart(spec) {
     "spec": spec
   })
   window.chart.show('#chart')
-  console.log('Chart is: ', window.chart)
   if (spec.title) {
     document.getElementById('chartTitle').innerHTML = spec.title
   }
