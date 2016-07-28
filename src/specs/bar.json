@@ -2,7 +2,8 @@
   "inputs": [
     { "name": "x", "type": [ "string" ], "required": true },
     { "name": "y", "type": [ "numeric" ], "required": true },
-    { "name": "color", "type": ["string"], "required": true}
+    { "name": "color", "type": ["string"], "required": true},
+    { "name": "hover", "type": ["string"], "required": true}
   ],
   "query": {},
   "template":{
@@ -78,7 +79,7 @@
             "fill": {"value": "{color.value}"}
           },
           "hover": {
-            "fill": {"value": "#29b6ea"}
+            "fill": {"value": "{hover.value}"}
           }
         },
         "type": "rect"

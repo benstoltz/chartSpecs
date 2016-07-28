@@ -37,7 +37,7 @@
           "data": "table",
           "field": "{color.field}"
         },
-        "range": ["red", "green", "blue"]
+        "range": "category10"
       }
     ],
     "axes": [

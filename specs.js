@@ -39,7 +39,7 @@ var esriBarSpec = {
       "fillSymbol": { // Pull in our own stuff
         "type": "esriSFS",
         "style": "esriSFSSolid",
-        "color": [115,76,0,255],
+        "color": [0,121,193],
         "outline": {
           "type": "esriSLS",
           "style": "esriSLSSolid",
@@ -121,7 +121,7 @@ var esriLineSpec = {
       "lineSymbol": {
         "type": "esriSLS",
         "style": "esriSLSSolid",
-        "color": [115,76,0,255],
+        "color": [0,121,193],
         "width": 1
       }
     }
