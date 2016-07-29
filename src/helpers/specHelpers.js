@@ -36,7 +36,6 @@ function determineColor(series, mapping, legend) {
   if (!!series.visualVariables) {
     const colorInfo = filterVisualVariables('colorInfo', series.visualVariables)
     if (!!colorInfo) {
-      console.log(legend)
       mapping.color = { field: colorInfo.field, label: legend.title }
     }
     return
@@ -54,7 +53,6 @@ function determineColor(series, mapping, legend) {
     mapping.color = { value: "#0079c1" }
   }
   mapping.hover = { value: lightenDarkenColor(mapping.color.value, 50) }
-  console.log(mapping.hover)
 }
 
 function determineLineStroke(series, mapping) {
