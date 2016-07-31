@@ -1,7 +1,7 @@
 var esriBarSpec = {
   "type": "chart",
   "name": "test bar chart",
-  "title": "test bar chart",
+  "title": "Count of Students by Type of School",
   "subTitle": "",
   "footer": "",
   "series": [
@@ -94,7 +94,7 @@ var esriBarSpec = {
 var esriLineSpec = {
   "type": "chart",
   "name": "test line chart",
-  "title": "test line chart",
+  "title": "Number of Tornado Injuries by Year",
   "subTitle": "",
   "footer": "",
   "series": [
@@ -171,7 +171,7 @@ var esriLineSpec = {
 var esriScatterSpec = {
   "type": "chart",
   "name": "test scatterplot chart",
-  "title": "test scatterplot chart",
+  "title": "Proportion of Teachers to Students by School Type",
   "subTitle": "",
   "footer": "",
   "series": [
